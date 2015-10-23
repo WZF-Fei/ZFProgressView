@@ -1,0 +1,527 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DB0379EB1BD8C57C007B89C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0379EA1BD8C57C007B89C7 /* main.m */; };
+		DB0379EE1BD8C57C007B89C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0379ED1BD8C57C007B89C7 /* AppDelegate.m */; };
+		DB0379F11BD8C57C007B89C7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0379F01BD8C57C007B89C7 /* ViewController.m */; };
+		DB0379F41BD8C57C007B89C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0379F21BD8C57C007B89C7 /* Main.storyboard */; };
+		DB0379F61BD8C57C007B89C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB0379F51BD8C57C007B89C7 /* Assets.xcassets */; };
+		DB0379F91BD8C57C007B89C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0379F71BD8C57C007B89C7 /* LaunchScreen.storyboard */; };
+		DB037A041BD8C57C007B89C7 /* ZFProgressViewExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB037A031BD8C57C007B89C7 /* ZFProgressViewExampleTests.m */; };
+		DB037A0F1BD8C57C007B89C7 /* ZFProgressViewExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB037A0E1BD8C57C007B89C7 /* ZFProgressViewExampleUITests.m */; };
+		DB037A1E1BD8C5A0007B89C7 /* ZFProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB037A1D1BD8C5A0007B89C7 /* ZFProgressView.m */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DB037A001BD8C57C007B89C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB0379DE1BD8C57C007B89C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB0379E51BD8C57C007B89C7;
+			remoteInfo = ZFProgressViewExample;
+		};
+		DB037A0B1BD8C57C007B89C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB0379DE1BD8C57C007B89C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB0379E51BD8C57C007B89C7;
+			remoteInfo = ZFProgressViewExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DB0379E61BD8C57C007B89C7 /* ZFProgressViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZFProgressViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB0379EA1BD8C57C007B89C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DB0379EC1BD8C57C007B89C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DB0379ED1BD8C57C007B89C7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DB0379EF1BD8C57C007B89C7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DB0379F01BD8C57C007B89C7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DB0379F31BD8C57C007B89C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DB0379F51BD8C57C007B89C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB0379F81BD8C57C007B89C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DB0379FA1BD8C57C007B89C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB0379FF1BD8C57C007B89C7 /* ZFProgressViewExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZFProgressViewExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB037A031BD8C57C007B89C7 /* ZFProgressViewExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZFProgressViewExampleTests.m; sourceTree = "<group>"; };
+		DB037A051BD8C57C007B89C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB037A0A1BD8C57C007B89C7 /* ZFProgressViewExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZFProgressViewExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB037A0E1BD8C57C007B89C7 /* ZFProgressViewExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZFProgressViewExampleUITests.m; sourceTree = "<group>"; };
+		DB037A101BD8C57C007B89C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB037A1C1BD8C5A0007B89C7 /* ZFProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFProgressView.h; sourceTree = "<group>"; };
+		DB037A1D1BD8C5A0007B89C7 /* ZFProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFProgressView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DB0379E31BD8C57C007B89C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB0379FC1BD8C57C007B89C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB037A071BD8C57C007B89C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DB0379DD1BD8C57C007B89C7 = {
+			isa = PBXGroup;
+			children = (
+				DB0379E81BD8C57C007B89C7 /* ZFProgressViewExample */,
+				DB037A021BD8C57C007B89C7 /* ZFProgressViewExampleTests */,
+				DB037A0D1BD8C57C007B89C7 /* ZFProgressViewExampleUITests */,
+				DB0379E71BD8C57C007B89C7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DB0379E71BD8C57C007B89C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DB0379E61BD8C57C007B89C7 /* ZFProgressViewExample.app */,
+				DB0379FF1BD8C57C007B89C7 /* ZFProgressViewExampleTests.xctest */,
+				DB037A0A1BD8C57C007B89C7 /* ZFProgressViewExampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DB0379E81BD8C57C007B89C7 /* ZFProgressViewExample */ = {
+			isa = PBXGroup;
+			children = (
+				DB0379EC1BD8C57C007B89C7 /* AppDelegate.h */,
+				DB0379ED1BD8C57C007B89C7 /* AppDelegate.m */,
+				DB0379EF1BD8C57C007B89C7 /* ViewController.h */,
+				DB0379F01BD8C57C007B89C7 /* ViewController.m */,
+				DB0379F21BD8C57C007B89C7 /* Main.storyboard */,
+				DB0379F51BD8C57C007B89C7 /* Assets.xcassets */,
+				DB0379F71BD8C57C007B89C7 /* LaunchScreen.storyboard */,
+				DB0379FA1BD8C57C007B89C7 /* Info.plist */,
+				DB037A1C1BD8C5A0007B89C7 /* ZFProgressView.h */,
+				DB037A1D1BD8C5A0007B89C7 /* ZFProgressView.m */,
+				DB0379E91BD8C57C007B89C7 /* Supporting Files */,
+			);
+			path = ZFProgressViewExample;
+			sourceTree = "<group>";
+		};
+		DB0379E91BD8C57C007B89C7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DB0379EA1BD8C57C007B89C7 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DB037A021BD8C57C007B89C7 /* ZFProgressViewExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				DB037A031BD8C57C007B89C7 /* ZFProgressViewExampleTests.m */,
+				DB037A051BD8C57C007B89C7 /* Info.plist */,
+			);
+			path = ZFProgressViewExampleTests;
+			sourceTree = "<group>";
+		};
+		DB037A0D1BD8C57C007B89C7 /* ZFProgressViewExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DB037A0E1BD8C57C007B89C7 /* ZFProgressViewExampleUITests.m */,
+				DB037A101BD8C57C007B89C7 /* Info.plist */,
+			);
+			path = ZFProgressViewExampleUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DB0379E51BD8C57C007B89C7 /* ZFProgressViewExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB037A131BD8C57C007B89C7 /* Build configuration list for PBXNativeTarget "ZFProgressViewExample" */;
+			buildPhases = (
+				DB0379E21BD8C57C007B89C7 /* Sources */,
+				DB0379E31BD8C57C007B89C7 /* Frameworks */,
+				DB0379E41BD8C57C007B89C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZFProgressViewExample;
+			productName = ZFProgressViewExample;
+			productReference = DB0379E61BD8C57C007B89C7 /* ZFProgressViewExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DB0379FE1BD8C57C007B89C7 /* ZFProgressViewExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB037A161BD8C57C007B89C7 /* Build configuration list for PBXNativeTarget "ZFProgressViewExampleTests" */;
+			buildPhases = (
+				DB0379FB1BD8C57C007B89C7 /* Sources */,
+				DB0379FC1BD8C57C007B89C7 /* Frameworks */,
+				DB0379FD1BD8C57C007B89C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB037A011BD8C57C007B89C7 /* PBXTargetDependency */,
+			);
+			name = ZFProgressViewExampleTests;
+			productName = ZFProgressViewExampleTests;
+			productReference = DB0379FF1BD8C57C007B89C7 /* ZFProgressViewExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DB037A091BD8C57C007B89C7 /* ZFProgressViewExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB037A191BD8C57C007B89C7 /* Build configuration list for PBXNativeTarget "ZFProgressViewExampleUITests" */;
+			buildPhases = (
+				DB037A061BD8C57C007B89C7 /* Sources */,
+				DB037A071BD8C57C007B89C7 /* Frameworks */,
+				DB037A081BD8C57C007B89C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB037A0C1BD8C57C007B89C7 /* PBXTargetDependency */,
+			);
+			name = ZFProgressViewExampleUITests;
+			productName = ZFProgressViewExampleUITests;
+			productReference = DB037A0A1BD8C57C007B89C7 /* ZFProgressViewExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DB0379DE1BD8C57C007B89C7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = WZF;
+				TargetAttributes = {
+					DB0379E51BD8C57C007B89C7 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					DB0379FE1BD8C57C007B89C7 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = DB0379E51BD8C57C007B89C7;
+					};
+					DB037A091BD8C57C007B89C7 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = DB0379E51BD8C57C007B89C7;
+					};
+				};
+			};
+			buildConfigurationList = DB0379E11BD8C57C007B89C7 /* Build configuration list for PBXProject "ZFProgressViewExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DB0379DD1BD8C57C007B89C7;
+			productRefGroup = DB0379E71BD8C57C007B89C7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DB0379E51BD8C57C007B89C7 /* ZFProgressViewExample */,
+				DB0379FE1BD8C57C007B89C7 /* ZFProgressViewExampleTests */,
+				DB037A091BD8C57C007B89C7 /* ZFProgressViewExampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DB0379E41BD8C57C007B89C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB0379F91BD8C57C007B89C7 /* LaunchScreen.storyboard in Resources */,
+				DB0379F61BD8C57C007B89C7 /* Assets.xcassets in Resources */,
+				DB0379F41BD8C57C007B89C7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB0379FD1BD8C57C007B89C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB037A081BD8C57C007B89C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DB0379E21BD8C57C007B89C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB0379F11BD8C57C007B89C7 /* ViewController.m in Sources */,
+				DB037A1E1BD8C5A0007B89C7 /* ZFProgressView.m in Sources */,
+				DB0379EE1BD8C57C007B89C7 /* AppDelegate.m in Sources */,
+				DB0379EB1BD8C57C007B89C7 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB0379FB1BD8C57C007B89C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB037A041BD8C57C007B89C7 /* ZFProgressViewExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB037A061BD8C57C007B89C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB037A0F1BD8C57C007B89C7 /* ZFProgressViewExampleUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DB037A011BD8C57C007B89C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB0379E51BD8C57C007B89C7 /* ZFProgressViewExample */;
+			targetProxy = DB037A001BD8C57C007B89C7 /* PBXContainerItemProxy */;
+		};
+		DB037A0C1BD8C57C007B89C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB0379E51BD8C57C007B89C7 /* ZFProgressViewExample */;
+			targetProxy = DB037A0B1BD8C57C007B89C7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DB0379F21BD8C57C007B89C7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB0379F31BD8C57C007B89C7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DB0379F71BD8C57C007B89C7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB0379F81BD8C57C007B89C7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DB037A111BD8C57C007B89C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DB037A121BD8C57C007B89C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DB037A141BD8C57C007B89C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ZFProgressViewExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WZF.ZFProgressViewExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DB037A151BD8C57C007B89C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ZFProgressViewExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WZF.ZFProgressViewExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DB037A171BD8C57C007B89C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ZFProgressViewExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WZF.ZFProgressViewExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZFProgressViewExample.app/ZFProgressViewExample";
+			};
+			name = Debug;
+		};
+		DB037A181BD8C57C007B89C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ZFProgressViewExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WZF.ZFProgressViewExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZFProgressViewExample.app/ZFProgressViewExample";
+			};
+			name = Release;
+		};
+		DB037A1A1BD8C57C007B89C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ZFProgressViewExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WZF.ZFProgressViewExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ZFProgressViewExample;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		DB037A1B1BD8C57C007B89C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ZFProgressViewExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WZF.ZFProgressViewExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ZFProgressViewExample;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DB0379E11BD8C57C007B89C7 /* Build configuration list for PBXProject "ZFProgressViewExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB037A111BD8C57C007B89C7 /* Debug */,
+				DB037A121BD8C57C007B89C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB037A131BD8C57C007B89C7 /* Build configuration list for PBXNativeTarget "ZFProgressViewExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB037A141BD8C57C007B89C7 /* Debug */,
+				DB037A151BD8C57C007B89C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DB037A161BD8C57C007B89C7 /* Build configuration list for PBXNativeTarget "ZFProgressViewExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB037A171BD8C57C007B89C7 /* Debug */,
+				DB037A181BD8C57C007B89C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DB037A191BD8C57C007B89C7 /* Build configuration list for PBXNativeTarget "ZFProgressViewExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB037A1A1BD8C57C007B89C7 /* Debug */,
+				DB037A1B1BD8C57C007B89C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DB0379DE1BD8C57C007B89C7 /* Project object */;
+}
