@@ -22,12 +22,12 @@ ZFProgressView *progress = [[ZFProgressView alloc] initWithFrame:CGRectMake(50, 
 [progress setProgressStrokeColor:[UIColor orangeColor]];
 ```
 
-###2.setBackgroundStrokeColor
+###2. setBackgroundStrokeColor
 ```obj-c
 [progress setBackgroundStrokeColor:[UIColor yellowColor]];
 ```
 
-###3.setDigitTintColor
+###3. setDigitTintColor
 ```obj-c
 [progress setDigitTintColor:[UIColor greenColor]];
 ```
