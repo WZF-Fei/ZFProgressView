@@ -24,7 +24,8 @@ ZFProgressView *progress = [[ZFProgressView alloc] initWithFrame:CGRectMake(50, 
 With Style
 
 ```obj-c
-ZFProgressView *progress = [[ZFProgressView alloc] initWithFrame:CGRectMake(50, 150, 100, 100) style:ZFProgressViewStyleRoundSegment];
+ZFProgressView *progress = [[ZFProgressView alloc] initWithFrame:CGRectMake(50, 150, 100, 100) 
+style:ZFProgressViewStyleRoundSegment];
 ```
 
 ###1. setProgressStrokeColor
