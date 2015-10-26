@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, ZFProgressViewStyle) {
+    ZFProgressViewStyleNone = 0,
+    ZFProgressViewStyleSquareSegment,
+    ZFProgressViewStyleRoundSegment,
+
+};
+
 @interface ZFProgressView : UIView
 
 //进度线条宽度
@@ -28,7 +35,8 @@
 //数字字体颜色
 @property (nonatomic,strong) UIColor *digitTintColor;
 
-
+//style
+- (instancetype) initWithFrame:(CGRect)frame style:(ZFProgressViewStyle)style;
 
 -(void)setProgress:(CGFloat)Percentage Animated:(BOOL)animated;
 

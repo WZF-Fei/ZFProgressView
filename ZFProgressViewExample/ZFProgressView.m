@@ -9,7 +9,8 @@
 #import "ZFProgressView.h"
 
 #define Duration 5.0
-#define DefaultLineWidth 8
+#define DefaultLineWidth 5
+#define GAP 10
 
 @interface ZFProgressView ()
 
@@ -18,39 +19,27 @@
 @property (nonatomic,strong) UILabel *progressLabel;
 @property (nonatomic,assign) CGFloat sumSteps;
 @property (nonatomic,strong) NSTimer *timer;
+@property (nonatomic,assign) ZFProgressViewStyle style;
 
 
 @end
 
 @implementation ZFProgressView
-
-
-- (instancetype) initWithFrame:(CGRect)frame
+//默认样式 none
+-(instancetype) initWithFrame:(CGRect)frame
+{
+   return [self initWithFrame:frame style:ZFProgressViewStyleNone];
+    
+}
+- (instancetype) initWithFrame:(CGRect)frame style:(ZFProgressViewStyle)style
 {
     self = [super initWithFrame:frame];
     if (self) {
         
         [self setBackgroundColor:[UIColor clearColor]];
-        _backgroundLayer = [CAShapeLayer layer];
-        _backgroundLayer.frame = self.bounds;
-        _backgroundLayer.fillColor = nil;
-        _backgroundLayer.strokeColor = [UIColor brownColor].CGColor;
-        [self.layer addSublayer:_backgroundLayer];
         
-        _progressLayer = [CAShapeLayer layer];
-        _progressLayer.frame = self.bounds;
-        _progressLayer.lineCap = kCALineCapSquare;
-        _progressLayer.lineJoin = kCALineCapSquare;
-        _progressLayer.fillColor = nil;
-        _progressLayer.strokeColor = [UIColor whiteColor].CGColor;
-        [self.layer addSublayer:_progressLayer];
-        
-        
-        [self.progressLabel setTextColor:[UIColor whiteColor]];
-        self.progressLabel.text = @"0%";
-        self.progressLabel.textAlignment = NSTextAlignmentCenter;
-        self.progressLabel.font = [UIFont systemFontOfSize:25 weight:0.4];
-        [self addSubview:self.progressLabel];
+        self.style = style;
+        [self layoutViews:style];
         
         //init default variable
         self.backgourndLineWidth = DefaultLineWidth;
@@ -65,28 +54,136 @@
     return self;
 }
 
-#pragma mark - draw circleLine
--(void) setBackgroundCircleLine
-{
 
-    UIBezierPath *backgroundCirlePath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.center.x - self.frame.origin.x,
-                                                                                          self.center.y - self.frame.origin.y)
-                                                                       radius:(self.bounds.size.width - _backgourndLineWidth)/ 2 - _offset
-                                                                   startAngle:0
-                                                                     endAngle:M_PI*2
-                                                                    clockwise:YES];
-    _backgroundLayer.path = backgroundCirlePath.CGPath;
+-(void) layoutViews:(ZFProgressViewStyle)style
+{
+    [self.progressLabel setTextColor:[UIColor whiteColor]];
+    self.progressLabel.text = @"0%";
+    self.progressLabel.textAlignment = NSTextAlignmentCenter;
+    self.progressLabel.font = [UIFont systemFontOfSize:25 weight:0.4];
+    [self addSubview:self.progressLabel];
+    
+    _backgroundLayer = [CAShapeLayer layer];
+    _backgroundLayer.frame = self.bounds;
+    _backgroundLayer.fillColor = nil;
+    _backgroundLayer.strokeColor = [UIColor brownColor].CGColor;
+    
+    _progressLayer = [CAShapeLayer layer];
+    _progressLayer.frame = self.bounds;
+    _progressLayer.fillColor = nil;
+    _progressLayer.strokeColor = [UIColor whiteColor].CGColor;
+    
+    switch (style) {
+        case ZFProgressViewStyleNone:
+        case ZFProgressViewStyleSquareSegment:
+            _backgroundLayer.lineCap = kCALineCapSquare;
+            _backgroundLayer.lineJoin = kCALineCapSquare;
+            
+            _progressLayer.lineCap = kCALineCapSquare;
+            _progressLayer.lineJoin = kCALineCapSquare;
+            break;
+            
+        case ZFProgressViewStyleRoundSegment:
+            _backgroundLayer.lineCap = kCALineCapRound;
+            _backgroundLayer.lineJoin = kCALineCapRound;
+            
+            _progressLayer.lineCap = kCALineCapRound;
+            _progressLayer.lineJoin = kCALineCapRound;
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self.layer addSublayer:_backgroundLayer];
+    [self.layer addSublayer:_progressLayer];
+    
+
+}
+#pragma mark - draw circleLine
+-(void) setBackgroundCircleLine:(ZFProgressViewStyle)style
+{
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    if (style == ZFProgressViewStyleNone) {
+        path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.center.x - self.frame.origin.x,
+                                                                               self.center.y - self.frame.origin.y)
+                                                            radius:(self.bounds.size.width - _backgourndLineWidth)/ 2 - _offset
+                                                        startAngle:0
+                                                          endAngle:M_PI*2
+                                                         clockwise:YES];
+    }
+    else
+    {
+        static float minAngle = 0.0081;
+   
+        for (int i = 0; i < ceil(360 / GAP)+1; i++) {
+            CGFloat angle = (i * (GAP + minAngle) * M_PI / 180.0);
+            
+            if (i == 0) {
+                angle = minAngle * M_PI/180.0;
+            }
+            
+            if (angle >= M_PI *2) {
+                angle = M_PI *2;
+            }
+            UIBezierPath *path1 = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.center.x - self.frame.origin.x,
+                                                                                    self.center.y - self.frame.origin.y)
+                                                                 radius:(self.bounds.size.width - _backgourndLineWidth)/ 2 - _offset
+                                                             startAngle:-M_PI_2 +(i *GAP * M_PI / 180.0)
+                                                               endAngle:-M_PI_2 + angle
+                                                              clockwise:YES];
+            
+            [path appendPath:path1];
+            
+        }
+
+    }
+
+    
+    
+    
+    _backgroundLayer.path = path.CGPath;
+
 }
 
--(void)setProgressCircleLine
+-(void)setProgressCircleLine:(ZFProgressViewStyle)style
 {
-    UIBezierPath *progressPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.center.x - self.frame.origin.x,
-                                                                                   self.center.y - self.frame.origin.y)
-                                                                radius:(self.bounds.size.width - _progressLineWidth)/ 2 - _offset
-                                                            startAngle:-M_PI_2
-                                                              endAngle:-M_PI_2 + M_PI*2
-                                                             clockwise:YES];
-    _progressLayer.path = progressPath.CGPath;
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    if (style == ZFProgressViewStyleNone) {
+        path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.center.x - self.frame.origin.x,
+                                                                            self.center.y - self.frame.origin.y)
+                                                         radius:(self.bounds.size.width - _progressLineWidth)/ 2 - _offset
+                                                     startAngle:-M_PI_2
+                                                       endAngle:-M_PI_2 + M_PI *2
+                                                      clockwise:YES];
+    }
+    else
+    {
+        static float minAngle = 0.0081;
+        for (int i = 0; i < ceil(360 / GAP *_Percentage)+1; i++) {
+            CGFloat angle = (i * (GAP + minAngle) * M_PI / 180.0);
+            
+            if (i == 0) {
+                angle = minAngle * M_PI/180.0;
+            }
+            
+            if (angle >= M_PI *2) {
+                angle = M_PI *2;
+            }
+            UIBezierPath *path1 = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.center.x - self.frame.origin.x,
+                                                                                    self.center.y - self.frame.origin.y)
+                                                                 radius:(self.bounds.size.width - _progressLineWidth)/ 2 - _offset
+                                                             startAngle:-M_PI_2 +(i *GAP * M_PI / 180.0)
+                                                               endAngle:-M_PI_2 + angle
+                                                              clockwise:YES];
+            
+            [path appendPath:path1];
+            
+        }
+
+    }
+    
+    _progressLayer.path = path.CGPath;
 }
 
 
@@ -110,14 +207,14 @@
 {
     _progressLineWidth = progressLineWidth;
     _progressLayer.lineWidth = progressLineWidth;
-    [self setBackgroundCircleLine];
-    [self setProgressCircleLine];
+    [self setBackgroundCircleLine:self.style];
+    [self setProgressCircleLine:self.style];
 }
 
 -(void)setPercentage:(CGFloat)Percentage
 {
     _Percentage = Percentage;
-    [self setProgressCircleLine];
+    [self setProgressCircleLine:self.style];
 ;
 }
 
@@ -143,14 +240,22 @@
 #pragma mark - progress animated YES or NO
 -(void)setProgress:(CGFloat)Percentage Animated:(BOOL)animated
 {
-    _Percentage = Percentage;
+    self.Percentage = Percentage;
     if (animated) {
   
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-        animation.fromValue = [NSNumber numberWithInt:0];
-        animation.toValue = [NSNumber numberWithFloat:_Percentage];
+        animation.fromValue = [NSNumber numberWithFloat:0.0];
+        if (self.style ==  ZFProgressViewStyleNone) {
+            animation.toValue = [NSNumber numberWithFloat:_Percentage];
+            _progressLayer.strokeEnd = _Percentage;
+        }
+        else
+        {
+            animation.toValue = [NSNumber numberWithFloat:1.0];
+        }
+        
         animation.duration = Duration;
-        _progressLayer.strokeEnd = _Percentage;
+
         //start timer
         _timer = [NSTimer scheduledTimerWithTimeInterval:_step
                                                   target:self
@@ -162,7 +267,6 @@
     } else {
         [CATransaction begin];
         [CATransaction setDisableActions:YES];
-        _progressLayer.strokeEnd = _Percentage;
         _progressLabel.text = [NSString stringWithFormat:@"%.0f%%",_Percentage*100];
         [CATransaction commit];
     }
