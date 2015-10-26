@@ -7,15 +7,25 @@ A simple digit progress view.
 <img src="https://github.com/WZF-Fei/ZFProgressView/blob/master/ZFProgressViewExampleTests/ZFProgressView.gif" width="266" height="500"/>
 </p>
 
+Version 1.1
+
+Add "ZFProgressViewStyle"
+
 ##How to use ZFProgressView?
 
 Add "ZFProgressView.h" and "ZFProgressView.m" in your project.
 Then
 
+
+
 ```obj-c
 ZFProgressView *progress = [[ZFProgressView alloc] initWithFrame:CGRectMake(50, 150, 100, 100)];
 ```
+With Style
 
+```obj-c
+ZFProgressView *progress = [[ZFProgressView alloc] initWithFrame:CGRectMake(50, 150, 100, 100) style:ZFProgressViewStyleRoundSegment];
+```
 
 ###1. setProgressStrokeColor
 ```obj-c
@@ -34,7 +44,7 @@ ZFProgressView *progress = [[ZFProgressView alloc] initWithFrame:CGRectMake(50, 
 
 ###4. use an animation to show digit progress
 ```obj-c
-[progress4 setProgress:0.8 Animated:YES];
+[progress setProgress:0.8 Animated:YES];
 or
-[progress4 setProgress:0.8 Animated:NO];
+[progress setProgress:0.8 Animated:NO];
 ```
