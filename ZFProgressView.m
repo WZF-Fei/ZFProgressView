@@ -10,7 +10,6 @@
 
 #define Duration 5.0
 #define DefaultLineWidth 5
-#define GAP 10
 
 @interface ZFProgressView ()
 
@@ -42,12 +41,14 @@
         [self layoutViews:style];
         
         //init default variable
+        self.GapWidth = 10.0;
         self.backgourndLineWidth = DefaultLineWidth;
         self.progressLineWidth = DefaultLineWidth;
         self.Percentage = 0;
         self.offset = 0;
         self.sumSteps = 0;
         self.step = 0.1;
+
 
 
     }
@@ -116,8 +117,8 @@
     {
         static float minAngle = 0.0081;
    
-        for (int i = 0; i < ceil(360 / GAP)+1; i++) {
-            CGFloat angle = (i * (GAP + minAngle) * M_PI / 180.0);
+        for (int i = 0; i < ceil(360 / _GapWidth)+1; i++) {
+            CGFloat angle = (i * (_GapWidth + minAngle) * M_PI / 180.0);
             
             if (i == 0) {
                 angle = minAngle * M_PI/180.0;
@@ -129,7 +130,7 @@
             UIBezierPath *path1 = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.center.x - self.frame.origin.x,
                                                                                     self.center.y - self.frame.origin.y)
                                                                  radius:(self.bounds.size.width - _backgourndLineWidth)/ 2 - _offset
-                                                             startAngle:-M_PI_2 +(i *GAP * M_PI / 180.0)
+                                                             startAngle:-M_PI_2 +(i *_GapWidth * M_PI / 180.0)
                                                                endAngle:-M_PI_2 + angle
                                                               clockwise:YES];
             
@@ -160,8 +161,8 @@
     else
     {
         static float minAngle = 0.0081;
-        for (int i = 0; i < ceil(360 / GAP *_Percentage)+1; i++) {
-            CGFloat angle = (i * (GAP + minAngle) * M_PI / 180.0);
+        for (int i = 0; i < ceil(360 / _GapWidth *_Percentage)+1; i++) {
+            CGFloat angle = (i * (_GapWidth + minAngle) * M_PI / 180.0);
             
             if (i == 0) {
                 angle = minAngle * M_PI/180.0;
@@ -173,7 +174,7 @@
             UIBezierPath *path1 = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.center.x - self.frame.origin.x,
                                                                                     self.center.y - self.frame.origin.y)
                                                                  radius:(self.bounds.size.width - _progressLineWidth)/ 2 - _offset
-                                                             startAngle:-M_PI_2 +(i *GAP * M_PI / 180.0)
+                                                             startAngle:-M_PI_2 +(i *_GapWidth * M_PI / 180.0)
                                                                endAngle:-M_PI_2 + angle
                                                               clockwise:YES];
             
@@ -182,7 +183,7 @@
         }
 
     }
-    
+//    NSLog(@"path:%@",path);
     _progressLayer.path = path.CGPath;
 }
 
@@ -215,6 +216,7 @@
 {
     _Percentage = Percentage;
     [self setProgressCircleLine:self.style];
+    [self setBackgroundCircleLine:self.style];
 ;
 }
 
@@ -235,6 +237,25 @@
 {
     _digitTintColor = digitTintColor;
     _progressLabel.textColor = digitTintColor;
+}
+
+-(void)setGapWidth:(CGFloat)GapWidth
+{
+    _GapWidth = GapWidth;
+    [self setBackgroundCircleLine:self.style];
+    [self setProgressCircleLine:self.style];
+    
+}
+
+-(void)setLineWidth:(CGFloat)lineWidth
+{
+    _lineWidth = lineWidth;
+    
+    _progressLineWidth = lineWidth;
+    _progressLayer.lineWidth = lineWidth;
+    
+    _backgourndLineWidth = lineWidth;
+    _backgroundLayer.lineWidth = lineWidth;
 }
 
 #pragma mark - progress animated YES or NO

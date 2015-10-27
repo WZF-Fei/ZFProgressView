@@ -35,6 +35,20 @@ typedef NS_ENUM(NSInteger, ZFProgressViewStyle) {
 //数字字体颜色
 @property (nonatomic,strong) UIColor *digitTintColor;
 
+/*
+ 设置每个格子的宽度与线条宽度要注意
+ 由于使用原点画圆弧的原因，距离原点越近，弧长越短
+ 
+ 要求：
+ 设置的线条宽度lineWidth < GapWidth
+ */
+
+
+//格子之间的宽度
+@property (nonatomic,assign) CGFloat GapWidth;
+//设置线条宽度 （进度条宽度 = 背景线条宽度）
+@property (nonatomic,assign) CGFloat lineWidth;
+
 //style
 - (instancetype) initWithFrame:(CGRect)frame style:(ZFProgressViewStyle)style;
 
