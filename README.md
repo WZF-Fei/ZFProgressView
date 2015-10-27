@@ -1,6 +1,7 @@
 # ZFProgressView
 A simple digit progress view.
-1. Version 1.1  加入不同进度样式
+
+## Version 1.1  加入不同进度样式
 
     ZFProgressViewStyleNone, //默认样式
     ZFProgressViewStyleSquareSegment, //方形格子进度条
