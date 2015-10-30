@@ -42,6 +42,13 @@
     [progress4 setBackgroundStrokeColor:[UIColor yellowColor]];
     [progress4 setDigitTintColor:[UIColor greenColor]];
     [progress4 setProgress:0.8 Animated:YES];
+    
+    ZFProgressView *progress5 = [[ZFProgressView alloc] initWithFrame:CGRectMake(50, 450, 100, 100) style:ZFProgressViewStyleNone];
+    [self.view addSubview:progress5];
+    [progress5 setProgressStrokeColor:[UIColor blueColor]];
+    [progress5 setDigitTintColor:[UIColor greenColor]];
+    [progress5 setBackgroundStrokeColor:[UIColor grayColor]];
+    [progress5 setProgress:0.9 Animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
