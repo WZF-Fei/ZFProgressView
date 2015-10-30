@@ -48,9 +48,6 @@
         self.offset = 0;
         self.sumSteps = 0;
         self.step = 0.1;
-
-
-
     }
     return self;
 }
@@ -288,6 +285,7 @@
     } else {
         [CATransaction begin];
         [CATransaction setDisableActions:YES];
+        _progressLayer.strokeEnd = _Percentage;
         _progressLabel.text = [NSString stringWithFormat:@"%.0f%%",_Percentage*100];
         [CATransaction commit];
     }
