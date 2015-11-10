@@ -6,16 +6,18 @@ A simple digit progress view.
     ZFProgressViewStyleNone, //默认样式
     ZFProgressViewStyleSquareSegment, //方形格子进度条
     ZFProgressViewStyleRoundSegment, //圆形格子进度条
+    ZFProgressViewStyleImageSegment, //带有图片的进度条
+
+##Version 1.2 
+
+1. 实现音乐播放器进度，设置音乐播放时间进行播放
+2. 可定时更换音乐封面
 
 ## Example:
 
 <p align="center" >
 <img src="https://github.com/WZF-Fei/ZFProgressView/blob/master/ZFProgressViewExampleTests/ZFProgressView.gif" width="266" height="500"/>
 </p>
-
-Version 1.1
-
-Add "ZFProgressViewStyle"
 
 ##How to use ZFProgressView?
 
@@ -55,3 +57,10 @@ ZFProgressView *progress = [[ZFProgressView alloc] initWithFrame:CGRectMake(50, 
 or
 [progress setProgress:0.8 Animated:NO];
 ```
+
+###5. add an image
+progress.image = [UIImage imageNamed:@"1.jpg"];
+
+###6. 加入进度播放时间 (秒)
+
+progress.timeDuration = 60;

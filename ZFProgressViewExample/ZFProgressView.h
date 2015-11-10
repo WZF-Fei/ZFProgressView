@@ -40,7 +40,7 @@ IB_DESIGNABLE
 //设置图片
 @property (nonatomic,strong) IBInspectable UIImage *image;
 
-//动画持续时间。
+//动画持续时间。 单位：秒
 @property (nonatomic) CGFloat timeDuration;
 
 /*
