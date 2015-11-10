@@ -16,6 +16,8 @@
 		DB037A041BD8C57C007B89C7 /* ZFProgressViewExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB037A031BD8C57C007B89C7 /* ZFProgressViewExampleTests.m */; };
 		DB037A0F1BD8C57C007B89C7 /* ZFProgressViewExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB037A0E1BD8C57C007B89C7 /* ZFProgressViewExampleUITests.m */; };
 		DB037A1E1BD8C5A0007B89C7 /* ZFProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB037A1D1BD8C5A0007B89C7 /* ZFProgressView.m */; settings = {ASSET_TAGS = (); }; };
+		DBA007981BF185850031D1A4 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBA007971BF185850031D1A4 /* 1.jpg */; settings = {ASSET_TAGS = (); }; };
+		DBA0079A1BF18E3F0031D1A4 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBA007991BF18E3F0031D1A4 /* 2.jpg */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		DB037A101BD8C57C007B89C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB037A1C1BD8C5A0007B89C7 /* ZFProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFProgressView.h; sourceTree = "<group>"; };
 		DB037A1D1BD8C5A0007B89C7 /* ZFProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFProgressView.m; sourceTree = "<group>"; };
+		DBA007971BF185850031D1A4 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		DBA007991BF18E3F0031D1A4 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 		DB0379E81BD8C57C007B89C7 /* ZFProgressViewExample */ = {
 			isa = PBXGroup;
 			children = (
+				DBA007971BF185850031D1A4 /* 1.jpg */,
+				DBA007991BF18E3F0031D1A4 /* 2.jpg */,
 				DB0379EC1BD8C57C007B89C7 /* AppDelegate.h */,
 				DB0379ED1BD8C57C007B89C7 /* AppDelegate.m */,
 				DB0379EF1BD8C57C007B89C7 /* ViewController.h */,
@@ -249,6 +255,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB0379F91BD8C57C007B89C7 /* LaunchScreen.storyboard in Resources */,
+				DBA007981BF185850031D1A4 /* 1.jpg in Resources */,
+				DBA0079A1BF18E3F0031D1A4 /* 2.jpg in Resources */,
 				DB0379F61BD8C57C007B89C7 /* Assets.xcassets in Resources */,
 				DB0379F41BD8C57C007B89C7 /* Main.storyboard in Resources */,
 			);

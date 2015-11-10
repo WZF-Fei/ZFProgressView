@@ -12,6 +12,10 @@
 @interface ViewController ()
 
 
+@property (nonatomic,strong) ZFProgressView *progress;
+
+@property NSUInteger count;
+
 @end
 
 @implementation ViewController
@@ -43,12 +47,23 @@
     [progress4 setDigitTintColor:[UIColor greenColor]];
     [progress4 setProgress:0.8 Animated:YES];
     
-    ZFProgressView *progress5 = [[ZFProgressView alloc] initWithFrame:CGRectMake(50, 450, 100, 100) style:ZFProgressViewStyleNone];
-    [self.view addSubview:progress5];
-    [progress5 setProgressStrokeColor:[UIColor blueColor]];
-    [progress5 setDigitTintColor:[UIColor greenColor]];
-    [progress5 setBackgroundStrokeColor:[UIColor grayColor]];
-    [progress5 setProgress:0.9 Animated:NO];
+    _progress = [[ZFProgressView alloc] initWithFrame:CGRectMake(50, 450, 100, 100) style:ZFProgressViewStyleImageSegment withImage:[UIImage imageNamed:@"1.jpg"]];
+    [self.view addSubview:_progress];
+    [_progress setProgressStrokeColor:[UIColor redColor]];
+    [_progress setBackgroundStrokeColor:[UIColor lightGrayColor]];
+    _progress.timeDuration = 60;
+    
+    [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(changeImage) userInfo:nil repeats:YES];
+
+}
+
+//定时更换图片
+-(void)changeImage
+{
+    
+    _progress.image = (_count % 2) ? [UIImage imageNamed:@"1.jpg"] : [UIImage imageNamed:@"2.jpg"];
+
+    _count ++;
 }
 
 - (void)didReceiveMemoryWarning {

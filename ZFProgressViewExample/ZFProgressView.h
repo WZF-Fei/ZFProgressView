@@ -12,6 +12,7 @@ typedef NS_ENUM(NSInteger, ZFProgressViewStyle) {
     ZFProgressViewStyleNone = 0,
     ZFProgressViewStyleSquareSegment,
     ZFProgressViewStyleRoundSegment,
+    ZFProgressViewStyleImageSegment,
 
 };
 
@@ -36,6 +37,12 @@ IB_DESIGNABLE
 //数字字体颜色
 @property (nonatomic,strong) IBInspectable UIColor *digitTintColor;
 
+//设置图片
+@property (nonatomic,strong) IBInspectable UIImage *image;
+
+//动画持续时间。
+@property (nonatomic) CGFloat timeDuration;
+
 /*
  设置每个格子的宽度与线条宽度要注意
  由于使用原点画圆弧的原因，距离原点越近，弧长越短
@@ -52,6 +59,8 @@ IB_DESIGNABLE
 
 //style
 - (instancetype) initWithFrame:(CGRect)frame style:(ZFProgressViewStyle)style;
+
+- (instancetype) initWithFrame:(CGRect)frame style:(ZFProgressViewStyle)style withImage:(UIImage *)image;
 
 -(void)setProgress:(CGFloat)Percentage Animated:(BOOL)animated;
 
