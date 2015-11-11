@@ -316,24 +316,29 @@
   
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
         animation.fromValue = [NSNumber numberWithFloat:0.0];
-        if (self.style ==  ZFProgressViewStyleNone || self.style == ZFProgressViewStyleImageSegment) {
+        if (self.style ==  ZFProgressViewStyleNone ) {
             animation.toValue = [NSNumber numberWithFloat:_Percentage];
             _progressLayer.strokeEnd = _Percentage;
         }
         else
         {
             animation.toValue = [NSNumber numberWithFloat:1.0];
+            
         }
         
         animation.duration = self.timeDuration;
 
-        //start timer
-        _timer = [NSTimer scheduledTimerWithTimeInterval:_step
-                                                  target:self
-                                                selector:@selector(numberAnimation)
-                                                userInfo:nil
-                                                 repeats:YES];
         [_progressLayer addAnimation:animation forKey:@"strokeEndAnimation"];
+        //start timer
+        if (!_timer) {
+            _timer = [NSTimer scheduledTimerWithTimeInterval:_step
+                                                      target:self
+                                                    selector:@selector(numberAnimation)
+                                                    userInfo:nil
+                                                     repeats:YES];
+        }
+
+
 
     } else {
         [CATransaction begin];

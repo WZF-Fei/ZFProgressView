@@ -16,6 +16,8 @@
 
 @property NSUInteger count;
 
+@property (nonatomic,strong) NSTimer *timer;
+
 @end
 
 @implementation ViewController
@@ -38,31 +40,34 @@
     ZFProgressView *progress3 = [[ZFProgressView alloc] initWithFrame:CGRectMake(50, 300, 100, 100) style:ZFProgressViewStyleSquareSegment];
     [self.view addSubview:progress3];
     [progress3 setProgressStrokeColor:[UIColor orangeColor]];
-    [progress3 setProgress:0.8 Animated:YES];
+    [progress3 setProgress:0.3 Animated:YES];
     
     ZFProgressView *progress4 = [[ZFProgressView alloc] initWithFrame:CGRectMake(200, 300, 100, 100) style:ZFProgressViewStyleRoundSegment];
     [self.view addSubview:progress4];
     [progress4 setProgressStrokeColor:[UIColor redColor]];
     [progress4 setBackgroundStrokeColor:[UIColor yellowColor]];
     [progress4 setDigitTintColor:[UIColor greenColor]];
-    [progress4 setProgress:0.8 Animated:YES];
+    [progress4 setProgress:0.6 Animated:YES];
     
     _progress = [[ZFProgressView alloc] initWithFrame:CGRectMake(50, 450, 100, 100) style:ZFProgressViewStyleImageSegment withImage:[UIImage imageNamed:@"1.jpg"]];
     [self.view addSubview:_progress];
     [_progress setProgressStrokeColor:[UIColor redColor]];
     [_progress setBackgroundStrokeColor:[UIColor lightGrayColor]];
-    _progress.timeDuration = 60;
+    _progress.timeDuration = 10;
     
-    [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(changeImage) userInfo:nil repeats:YES];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(changeImage) userInfo:nil repeats:YES];
 
 }
 
 //定时更换图片
 -(void)changeImage
 {
-    
+    if (_count >= _progress.timeDuration) {
+        [_timer invalidate];
+        _timer = nil;
+        return;
+    }
     _progress.image = (_count % 2) ? [UIImage imageNamed:@"1.jpg"] : [UIImage imageNamed:@"2.jpg"];
-
     _count ++;
 }
 
