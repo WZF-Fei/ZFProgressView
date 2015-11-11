@@ -29,6 +29,8 @@ IB_DESIGNABLE
 @property (nonatomic,strong) IBInspectable UIColor *backgroundStrokeColor;
 //进度条填充颜色
 @property (nonatomic,strong) IBInspectable UIColor *progressStrokeColor;
+//内部背景颜色
+@property (nonatomic,strong) IBInspectable UIColor *innerBackgroundColor;
 //距离边框边距偏移量
 @property (nonatomic,assign) IBInspectable CGFloat offset;
 //步长

@@ -37,6 +37,7 @@
         
         [self setBackgroundColor:[UIColor clearColor]];
         
+        self.innerBackgroundColor = [UIColor clearColor];
         self.style = style;
         [self layoutViews:style];
         
@@ -69,6 +70,9 @@
 -(void) layoutViews:(ZFProgressViewStyle)style
 {
     [self.progressLabel setTextColor:[UIColor whiteColor]];
+    self.progressLabel.backgroundColor = _innerBackgroundColor;
+    self.progressLabel.layer.cornerRadius = self.bounds.size.width /2;
+    self.progressLabel.layer.masksToBounds = YES;
     self.progressLabel.text = @"0%";
     self.progressLabel.textAlignment = NSTextAlignmentCenter;
     self.progressLabel.font = [UIFont systemFontOfSize:25 weight:0.4];
@@ -307,6 +311,12 @@
 {
     _timeDuration = timeDuration;
     [self setProgress:1.0 Animated:YES];
+}
+
+-(void)setInnerBackgroundColor:(UIColor *)innerBackgroundColor
+{
+    _innerBackgroundColor = innerBackgroundColor;
+    [self layoutViews:ZFProgressViewStyleNone];
 }
 #pragma mark - progress animated YES or NO
 -(void)setProgress:(CGFloat)Percentage Animated:(BOOL)animated

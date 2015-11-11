@@ -29,6 +29,7 @@
     
     ZFProgressView *progress1 = [[ZFProgressView alloc] initWithFrame:CGRectMake(50, 150, 100, 100)];
     [self.view addSubview:progress1];
+    progress1.innerBackgroundColor = [UIColor magentaColor];
     [progress1 setProgress:0.8 Animated:YES];
 //
 //    
