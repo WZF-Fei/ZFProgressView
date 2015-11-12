@@ -1,10 +1,26 @@
 //
 //  ZFProgressView.m
-//  ZFProgressView
 //
-//  Created by macOne on 15/9/23.
+//  Created by ZhengFei Wang on 15/9/23.
 //  Copyright © 2015年 WZF. All rights reserved.
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 #import "ZFProgressView.h"
 
@@ -37,6 +53,7 @@
         
         [self setBackgroundColor:[UIColor clearColor]];
         
+        self.innerBackgroundColor = [UIColor clearColor];
         self.style = style;
         [self layoutViews:style];
         
@@ -69,6 +86,9 @@
 -(void) layoutViews:(ZFProgressViewStyle)style
 {
     [self.progressLabel setTextColor:[UIColor whiteColor]];
+    self.progressLabel.backgroundColor = _innerBackgroundColor;
+    self.progressLabel.layer.cornerRadius = self.bounds.size.width /2;
+    self.progressLabel.layer.masksToBounds = YES;
     self.progressLabel.text = @"0%";
     self.progressLabel.textAlignment = NSTextAlignmentCenter;
     self.progressLabel.font = [UIFont systemFontOfSize:25 weight:0.4];
@@ -308,6 +328,12 @@
     _timeDuration = timeDuration;
     [self setProgress:1.0 Animated:YES];
 }
+
+-(void)setInnerBackgroundColor:(UIColor *)innerBackgroundColor
+{
+    _innerBackgroundColor = innerBackgroundColor;
+    [self layoutViews:ZFProgressViewStyleNone];
+}
 #pragma mark - progress animated YES or NO
 -(void)setProgress:(CGFloat)Percentage Animated:(BOOL)animated
 {
@@ -316,24 +342,29 @@
   
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
         animation.fromValue = [NSNumber numberWithFloat:0.0];
-        if (self.style ==  ZFProgressViewStyleNone || self.style == ZFProgressViewStyleImageSegment) {
+        if (self.style ==  ZFProgressViewStyleNone ) {
             animation.toValue = [NSNumber numberWithFloat:_Percentage];
             _progressLayer.strokeEnd = _Percentage;
         }
         else
         {
             animation.toValue = [NSNumber numberWithFloat:1.0];
+            
         }
         
         animation.duration = self.timeDuration;
 
-        //start timer
-        _timer = [NSTimer scheduledTimerWithTimeInterval:_step
-                                                  target:self
-                                                selector:@selector(numberAnimation)
-                                                userInfo:nil
-                                                 repeats:YES];
         [_progressLayer addAnimation:animation forKey:@"strokeEndAnimation"];
+        //start timer
+        if (!_timer) {
+            _timer = [NSTimer scheduledTimerWithTimeInterval:_step
+                                                      target:self
+                                                    selector:@selector(numberAnimation)
+                                                    userInfo:nil
+                                                     repeats:YES];
+        }
+
+
 
     } else {
         [CATransaction begin];
