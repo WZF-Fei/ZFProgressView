@@ -1,8 +1,8 @@
 //
 //  ZFProgressView.h
 //
-//  Created by ZhengFei Wang on 15/9/23.
-//  Copyright © 2015年 WZF. All rights reserved.
+//  Created by WZF on 15/9/23.
+//  Copyright © 2015年 WZF. <wzhf366@163.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
