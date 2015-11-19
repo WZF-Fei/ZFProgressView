@@ -55,6 +55,10 @@
         
         self.innerBackgroundColor = [UIColor clearColor];
         self.style = style;
+        
+        self.startAngle = -90 *(M_PI / 180.0);
+        self.endAngle = (-90 + 360) *(M_PI / 180.0);
+        
         [self layoutViews:style];
         
         //init default variable
@@ -73,6 +77,9 @@
         self.sumSteps = 0;
         self.step = 0.1;
         self.timeDuration = 5.0;
+
+        
+        NSLog(@"endAngle:%f,startAngle:%f",self.endAngle,self.startAngle);
     }
     return self;
 }
@@ -167,29 +174,44 @@
         path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.center.x - self.frame.origin.x,
                                                                                self.center.y - self.frame.origin.y)
                                                             radius:(self.bounds.size.width - _backgourndLineWidth)/ 2 - _offset
-                                                        startAngle:0
-                                                          endAngle:M_PI*2
+                                                        startAngle:self.startAngle
+                                                          endAngle:self.endAngle
                                                          clockwise:YES];
     }
     else
     {
         static float minAngle = 0.0081;
    
-        for (int i = 0; i < ceil(360 / _GapWidth)+1; i++) {
+        CGFloat totalAngle = self.endAngle - self.startAngle;
+        if (totalAngle < 0) {
+            totalAngle += M_PI *2;
+        }
+  
+        for (int i = 0; i < ceil(360 *(totalAngle / (M_PI *2))/ _GapWidth)+1; i++) {
             CGFloat angle = (i * (_GapWidth + minAngle) * M_PI / 180.0);
             
-            if (i == 0) {
+            if (i == 0  && ((totalAngle - M_PI_2) == 0
+                            || (totalAngle - M_PI*2/2) == 0
+                            || (totalAngle - M_PI*3/2) == 0
+                            || (totalAngle - M_PI*4/2) == 0)
+                        && (fabs(self.startAngle) == 0
+                            || (fabs(self.startAngle) - M_PI_2) == 0
+                            || (fabs(self.startAngle) - M_PI*2/2) == 0
+                            || (fabs(self.startAngle) - M_PI*3/2) == 0
+                            || (fabs(self.startAngle) - M_PI*4/2) == 0)) {
                 angle = minAngle * M_PI/180.0;
             }
             
-            if (angle >= M_PI *2) {
-                angle = M_PI *2;
+
+            
+            if (angle >= totalAngle) {
+                angle = totalAngle;
             }
             UIBezierPath *path1 = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.center.x - self.frame.origin.x,
                                                                                     self.center.y - self.frame.origin.y)
                                                                  radius:(self.bounds.size.width - _backgourndLineWidth)/ 2 - _offset
-                                                             startAngle:-M_PI_2 +(i *_GapWidth * M_PI / 180.0)
-                                                               endAngle:-M_PI_2 + angle
+                                                             startAngle:self.startAngle +(i *_GapWidth * M_PI / 180.0)
+                                                               endAngle:self.startAngle + angle
                                                               clockwise:YES];
             
             [path appendPath:path1];
@@ -197,10 +219,7 @@
         }
 
     }
-
-    
-    
-    
+  
     _backgroundLayer.path = path.CGPath;
 
 }
@@ -212,30 +231,47 @@
         path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.center.x - self.frame.origin.x,
                                                                             self.center.y - self.frame.origin.y)
                                                          radius:(self.bounds.size.width - _progressLineWidth)/ 2 - _offset
-                                                     startAngle:-M_PI_2
-                                                       endAngle:-M_PI_2 + M_PI *2
+                                                     startAngle:self.startAngle
+                                                       endAngle:self.endAngle
                                                       clockwise:YES];
     }
     else
     {
         static float minAngle = 0.0081;
-        for (int i = 0; i < ceil(360 / _GapWidth *_Percentage)+1; i++) {
+        CGFloat totalAngle = self.endAngle - self.startAngle;
+        
+        if (totalAngle < 0) {
+            totalAngle += M_PI *2;
+        }
+        for (int i = 0; i < ceil(360 *(totalAngle / (M_PI *2)) / _GapWidth *_Percentage)+1; i++) {
             CGFloat angle = (i * (_GapWidth + minAngle) * M_PI / 180.0);
             
-            if (i == 0) {
+            if (i == 0  && ((totalAngle - M_PI_2) == 0
+                            || (totalAngle - M_PI*2/2) == 0
+                            || (totalAngle - M_PI*3/2) == 0
+                            || (totalAngle - M_PI*4/2) == 0)
+                        && (fabs(self.startAngle) == 0
+                            || (fabs(self.startAngle) - M_PI_2) == 0
+                            || (fabs(self.startAngle) - M_PI*2/2) == 0
+                            || (fabs(self.startAngle) - M_PI*3/2) == 0
+                            || (fabs(self.startAngle) - M_PI*4/2) == 0)){
                 angle = minAngle * M_PI/180.0;
             }
             
-            if (angle >= M_PI *2) {
-                angle = M_PI *2;
+            //总圆弧长度
+
+            NSLog(@"totalAngle:%f,angle:%f",totalAngle,angle);
+            
+            if (angle >= totalAngle) {
+                angle = totalAngle;
             }
             UIBezierPath *path1 = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.center.x - self.frame.origin.x,
                                                                                     self.center.y - self.frame.origin.y)
                                                                  radius:(self.bounds.size.width - _progressLineWidth)/ 2 - _offset
-                                                             startAngle:-M_PI_2 +(i *_GapWidth * M_PI / 180.0)
-                                                               endAngle:-M_PI_2 + angle
+                                                             startAngle:self.startAngle +(i *_GapWidth * M_PI / 180.0)
+                                                               endAngle:self.startAngle + angle
                                                               clockwise:YES];
-            
+
             [path appendPath:path1];
             
         }
@@ -334,6 +370,18 @@
     _innerBackgroundColor = innerBackgroundColor;
     [self layoutViews:ZFProgressViewStyleNone];
 }
+
+-(void)setStartAngle:(CGFloat)startAngle
+{
+    _startAngle = startAngle;
+    [self layoutViews:self.style];
+}
+-(void)setEndAngle:(CGFloat)endAngle
+{
+    _endAngle = endAngle;
+    [self layoutViews:self.style];
+}
+
 #pragma mark - progress animated YES or NO
 -(void)setProgress:(CGFloat)Percentage Animated:(BOOL)animated
 {

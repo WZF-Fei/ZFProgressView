@@ -29,26 +29,29 @@
     
     ZFProgressView *progress1 = [[ZFProgressView alloc] initWithFrame:CGRectMake(50, 150, 100, 100)];
     [self.view addSubview:progress1];
-    progress1.innerBackgroundColor = [UIColor magentaColor];
+    progress1.innerBackgroundColor = [UIColor redColor];
     [progress1 setProgress:0.8 Animated:YES];
 //
 //    
     ZFProgressView *progress2 = [[ZFProgressView alloc] initWithFrame:CGRectMake(200, 150, 100, 100) style:ZFProgressViewStyleRoundSegment];
     [self.view addSubview:progress2];
     [progress2 setProgressStrokeColor:[UIColor orangeColor]];
-    [progress2 setProgress:0.8 Animated:YES];
+    [progress2 setProgress:0.45 Animated:YES];
     
     ZFProgressView *progress3 = [[ZFProgressView alloc] initWithFrame:CGRectMake(50, 300, 100, 100) style:ZFProgressViewStyleSquareSegment];
     [self.view addSubview:progress3];
-    [progress3 setProgressStrokeColor:[UIColor orangeColor]];
-    [progress3 setProgress:0.3 Animated:YES];
+    [progress3 setProgressStrokeColor:[UIColor yellowColor]];
+    [progress3 setBackgroundStrokeColor:[UIColor orangeColor]];
+    [progress3 setProgress:0.9 Animated:YES];
     
-    ZFProgressView *progress4 = [[ZFProgressView alloc] initWithFrame:CGRectMake(200, 300, 100, 100) style:ZFProgressViewStyleRoundSegment];
+    ZFProgressView *progress4 = [[ZFProgressView alloc] initWithFrame:CGRectMake(200, 300, 100, 100) style:ZFProgressViewStyleNone];
     [self.view addSubview:progress4];
+    progress4.startAngle = 135 *(M_PI /180); //起始135度
+    progress4.endAngle = M_PI_4; //终点45度
     [progress4 setProgressStrokeColor:[UIColor redColor]];
     [progress4 setBackgroundStrokeColor:[UIColor yellowColor]];
     [progress4 setDigitTintColor:[UIColor greenColor]];
-    [progress4 setProgress:0.6 Animated:YES];
+    [progress4 setProgress:0.5 Animated:YES];
     
     _progress = [[ZFProgressView alloc] initWithFrame:CGRectMake(50, 450, 100, 100) style:ZFProgressViewStyleImageSegment withImage:[UIImage imageNamed:@"1.jpg"]];
     [self.view addSubview:_progress];
