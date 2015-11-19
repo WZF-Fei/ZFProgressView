@@ -61,6 +61,11 @@ IB_DESIGNABLE
 //动画持续时间。 单位：秒
 @property (nonatomic) CGFloat timeDuration;
 
+//进度条起始角度
+@property (nonatomic) CGFloat startAngle;
+//进度条终点角度
+@property (nonatomic) CGFloat endAngle;
+
 /*
  设置每个格子的宽度与线条宽度要注意
  由于使用原点画圆弧的原因，距离原点越近，弧长越短
