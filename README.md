@@ -12,9 +12,10 @@ A simple digit progress view.
 
 1. 实现音乐播放器进度，设置音乐播放时间进行播放
 2. 可定时更换音乐封面
-##Version 1.3
 
-可自定义进度条的起止点。
+## Version 1.3
+
+1.可自定义进度条的起止点。
 ## Example:
 
 <p align="center" >
