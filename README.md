@@ -14,7 +14,7 @@ A simple digit progress view.
 2. 可定时更换音乐封面
 ##Version 1.3
 
-1. 可自定义进度条的起止点。
+可自定义进度条的起止点。
 ## Example:
 
 <p align="center" >
