@@ -240,7 +240,7 @@
     {
         //0.5个弧度
         static float minAngle = 0.5 * (2 * M_PI)/360;
-        NSLog(@"minAngle:%f",minAngle);
+
         CGFloat totalAngle = self.endAngle - self.startAngle;
         
         if (totalAngle < 0) {
@@ -263,7 +263,7 @@
             
             //总圆弧长度
 
-            NSLog(@"totalAngle:%f,angle:%f",totalAngle,angle);
+//            NSLog(@"totalAngle:%f,angle:%f",totalAngle,angle);
             
             if (angle >= totalAngle) {
                 angle = totalAngle;
