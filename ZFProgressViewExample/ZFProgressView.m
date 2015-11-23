@@ -180,7 +180,8 @@
     }
     else
     {
-        static float minAngle = 0.0081;
+        //最小0.5个弧度
+        static float minAngle = 0.5 *(2 * M_PI)/360;
    
         CGFloat totalAngle = self.endAngle - self.startAngle;
         if (totalAngle < 0) {
@@ -237,7 +238,9 @@
     }
     else
     {
-        static float minAngle = 0.0081;
+        //0.5个弧度
+        static float minAngle = 0.5 * (2 * M_PI)/360;
+        NSLog(@"minAngle:%f",minAngle);
         CGFloat totalAngle = self.endAngle - self.startAngle;
         
         if (totalAngle < 0) {
