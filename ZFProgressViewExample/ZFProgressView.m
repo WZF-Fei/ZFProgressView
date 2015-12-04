@@ -72,14 +72,13 @@
             self.progressLineWidth = DefaultLineWidth;
         }
 
-        self.Percentage = 0;
-        self.offset = 0;
-        self.sumSteps = 0;
-        self.step = 0.1;
-        self.timeDuration = 5.0;
+        _Percentage = 0;
+        _offset = 0;
+        _sumSteps = 0;
+        _step = 0.1;
+        _timeDuration = 5.0;
 
         
-        NSLog(@"endAngle:%f,startAngle:%f",self.endAngle,self.startAngle);
     }
     return self;
 }
@@ -404,6 +403,7 @@
         }
         
         animation.duration = self.timeDuration;
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
 
         [_progressLayer addAnimation:animation forKey:@"strokeEndAnimation"];
         //start timer
@@ -413,6 +413,7 @@
                                                     selector:@selector(numberAnimation)
                                                     userInfo:nil
                                                      repeats:YES];
+            [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
         }
 
 
@@ -431,8 +432,8 @@
 {
     //Duration 动画持续时长
     _sumSteps += _step;
-    float sumSteps =  _Percentage /self.timeDuration *_sumSteps;
-    if (_sumSteps >= self.timeDuration) {
+    float sumSteps =  _Percentage /_timeDuration *_sumSteps;
+    if (_sumSteps >= _timeDuration) {
         //close timer
         [_timer invalidate];
         _timer = nil;
