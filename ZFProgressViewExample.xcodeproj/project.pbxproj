@@ -15,7 +15,7 @@
 		DB0379F91BD8C57C007B89C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0379F71BD8C57C007B89C7 /* LaunchScreen.storyboard */; };
 		DB037A041BD8C57C007B89C7 /* ZFProgressViewExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB037A031BD8C57C007B89C7 /* ZFProgressViewExampleTests.m */; };
 		DB037A0F1BD8C57C007B89C7 /* ZFProgressViewExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB037A0E1BD8C57C007B89C7 /* ZFProgressViewExampleUITests.m */; };
-		DB037A1E1BD8C5A0007B89C7 /* ZFProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB037A1D1BD8C5A0007B89C7 /* ZFProgressView.m */; settings = {ASSET_TAGS = (); }; };
+		DB76B9681C17C98200B4C24E /* ZFProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB76B9671C17C98200B4C24E /* ZFProgressView.m */; settings = {ASSET_TAGS = (); }; };
 		DBA007981BF185850031D1A4 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBA007971BF185850031D1A4 /* 1.jpg */; settings = {ASSET_TAGS = (); }; };
 		DBA0079A1BF18E3F0031D1A4 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBA007991BF18E3F0031D1A4 /* 2.jpg */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -54,8 +54,8 @@
 		DB037A0A1BD8C57C007B89C7 /* ZFProgressViewExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZFProgressViewExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB037A0E1BD8C57C007B89C7 /* ZFProgressViewExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZFProgressViewExampleUITests.m; sourceTree = "<group>"; };
 		DB037A101BD8C57C007B89C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DB037A1C1BD8C5A0007B89C7 /* ZFProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFProgressView.h; sourceTree = "<group>"; };
-		DB037A1D1BD8C5A0007B89C7 /* ZFProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFProgressView.m; sourceTree = "<group>"; };
+		DB76B9661C17C98200B4C24E /* ZFProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFProgressView.h; sourceTree = "<group>"; };
+		DB76B9671C17C98200B4C24E /* ZFProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFProgressView.m; sourceTree = "<group>"; };
 		DBA007971BF185850031D1A4 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		DBA007991BF18E3F0031D1A4 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,12 +114,7 @@
 				DB0379ED1BD8C57C007B89C7 /* AppDelegate.m */,
 				DB0379EF1BD8C57C007B89C7 /* ViewController.h */,
 				DB0379F01BD8C57C007B89C7 /* ViewController.m */,
-				DB0379F21BD8C57C007B89C7 /* Main.storyboard */,
-				DB0379F51BD8C57C007B89C7 /* Assets.xcassets */,
-				DB0379F71BD8C57C007B89C7 /* LaunchScreen.storyboard */,
-				DB0379FA1BD8C57C007B89C7 /* Info.plist */,
-				DB037A1C1BD8C5A0007B89C7 /* ZFProgressView.h */,
-				DB037A1D1BD8C5A0007B89C7 /* ZFProgressView.m */,
+				DB76B9691C17C99F00B4C24E /* ZFProgressView */,
 				DB0379E91BD8C57C007B89C7 /* Supporting Files */,
 			);
 			path = ZFProgressViewExample;
@@ -128,6 +123,10 @@
 		DB0379E91BD8C57C007B89C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DB0379F21BD8C57C007B89C7 /* Main.storyboard */,
+				DB0379F51BD8C57C007B89C7 /* Assets.xcassets */,
+				DB0379F71BD8C57C007B89C7 /* LaunchScreen.storyboard */,
+				DB0379FA1BD8C57C007B89C7 /* Info.plist */,
 				DB0379EA1BD8C57C007B89C7 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -149,6 +148,15 @@
 				DB037A101BD8C57C007B89C7 /* Info.plist */,
 			);
 			path = ZFProgressViewExampleUITests;
+			sourceTree = "<group>";
+		};
+		DB76B9691C17C99F00B4C24E /* ZFProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				DB76B9661C17C98200B4C24E /* ZFProgressView.h */,
+				DB76B9671C17C98200B4C24E /* ZFProgressView.m */,
+			);
+			name = ZFProgressView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,9 +292,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB0379F11BD8C57C007B89C7 /* ViewController.m in Sources */,
-				DB037A1E1BD8C5A0007B89C7 /* ZFProgressView.m in Sources */,
 				DB0379EE1BD8C57C007B89C7 /* AppDelegate.m in Sources */,
 				DB0379EB1BD8C57C007B89C7 /* main.m in Sources */,
+				DB76B9681C17C98200B4C24E /* ZFProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,6 +25,8 @@
 #import "ZFProgressView.h"
 
 #define DefaultLineWidth 5
+static NSString *timerName = @"AnimationTimer";
+
 
 @interface ZFProgressView ()
 
@@ -34,6 +36,7 @@
 @property (nonatomic,strong) UILabel *progressLabel;
 @property (nonatomic,assign) CGFloat sumSteps;
 @property (nonatomic,strong) NSTimer *timer;
+@property (nonatomic,strong) NSMutableDictionary *timerContainer;
 @property (nonatomic,assign) ZFProgressViewStyle style;
 
 
@@ -294,6 +297,15 @@
     }
     return _progressLabel;
 }
+
+- (NSMutableDictionary *)timerContainer
+{
+    if (!_timerContainer) {
+        _timerContainer = [[NSMutableDictionary alloc] init];
+    }
+    return _timerContainer;
+}
+
 -(void)setBackgourndLineWidth:(CGFloat)backgourndLineWidth
 {
     _backgourndLineWidth = backgourndLineWidth;
@@ -406,17 +418,22 @@
         animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
 
         [_progressLayer addAnimation:animation forKey:@"strokeEndAnimation"];
-        //start timer
-        if (!_timer) {
-            _timer = [NSTimer scheduledTimerWithTimeInterval:_step
-                                                      target:self
-                                                    selector:@selector(numberAnimation)
-                                                    userInfo:nil
-                                                     repeats:YES];
-            [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
-        }
+        //start timer 会产生强引用，造成无法释放的问题
+//        if (!_timer) {
+//            _timer = [NSTimer scheduledTimerWithTimeInterval:_step
+//                                                      target:self
+//                                                    selector:@selector(numberAnimation)
+//                                                    userInfo:nil
+//                                                     repeats:YES];
+//            [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+//        }
 
+        [self cancelTimerWithName:timerName];
+        __weak typeof(self) weakSelf = self;
 
+        [self scheduledDispatchTimerWithName:timerName timeInterval:_step queue:nil repeats:YES action:^{
+            [weakSelf numberAnimation];
+        }];
 
     } else {
         [CATransaction begin];
@@ -435,10 +452,67 @@
     float sumSteps =  _Percentage /_timeDuration *_sumSteps;
     if (_sumSteps >= _timeDuration) {
         //close timer
-        [_timer invalidate];
-        _timer = nil;
+//        [_timer invalidate];
+//        _timer = nil;
+        [self cancelTimerWithName:timerName];
         return;
     }
     _progressLabel.text = [NSString stringWithFormat:@"%.0f%%",sumSteps *100];
 }
+
+//Use GCD-timer
+// @param timerName       timer的名称，作为唯一标识
+// @param interval        执行的时间间隔
+// @param queue           timer将被放入的队列，也就是最终action执行的队列。传入nil将自动放到一个子线程队列中
+// @param repeats         timer是否循环调用
+// @param action          时间间隔到点时执行的block
+- (void)scheduledDispatchTimerWithName:(NSString *)timerName
+                          timeInterval:(double)interval
+                                 queue:(dispatch_queue_t)queue
+                               repeats:(BOOL)repeats
+                                action:(dispatch_block_t)action
+{
+    if (nil == timerName)
+        return;
+    
+    if (nil == queue)
+        queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_source_t timer = [self.timerContainer objectForKey:timerName];
+    if (!timer) {
+        timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+        dispatch_resume(timer);
+        [self.timerContainer setObject:timer forKey:timerName];
+    }
+    
+    dispatch_source_set_timer(timer, dispatch_time(DISPATCH_TIME_NOW, interval * NSEC_PER_SEC), interval * NSEC_PER_SEC, 0.1 * NSEC_PER_SEC);
+    
+    __weak typeof(self) weakSelf = self;
+    
+    dispatch_source_set_event_handler(timer, ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //刷新主界面
+            action();
+        });
+        
+        if (!repeats) {
+            [weakSelf cancelTimerWithName:timerName];
+        }
+    });
+    
+}
+
+- (void)cancelTimerWithName:(NSString *)timerName
+{
+    dispatch_source_t timer = [self.timerContainer objectForKey:timerName];
+    
+    if (!timer) {
+        return;
+    }
+    
+    [self.timerContainer removeObjectForKey:timerName];
+    dispatch_source_cancel(timer);
+    
+}
+
 @end
