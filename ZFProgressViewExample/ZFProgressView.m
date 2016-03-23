@@ -177,7 +177,7 @@ static NSString *timerName = @"AnimationTimer";
                                                                                self.center.y - self.frame.origin.y)
                                                             radius:(self.bounds.size.width - _backgourndLineWidth)/ 2 - _offset
                                                         startAngle:self.startAngle
-                                                          endAngle:self.endAngle
+                                                          endAngle:self.endAngle - 0.1
                                                          clockwise:YES];
     }
     else
@@ -235,7 +235,7 @@ static NSString *timerName = @"AnimationTimer";
                                                                             self.center.y - self.frame.origin.y)
                                                          radius:(self.bounds.size.width - _progressLineWidth)/ 2 - _offset
                                                      startAngle:self.startAngle
-                                                       endAngle:self.endAngle
+                                                       endAngle:self.endAngle -0.1
                                                       clockwise:YES];
     }
     else
